@@ -1,62 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
-/* main theme colors */
---first-color: #0e2431;
---second-color: #6a59d1;
---third-color: #777;
+    /* main theme colors */
+    --first-color: #0e2431;
+    --second-color: #6a59d1;
+    --third-color: #777;
 
-/* hover colors */
---hover-color:#614fd0;
+    /* hover colors */
+    --hover-color:#614fd0;
 
-/* background colors */
---body-bg-color: #fefefe;
---card-bg-color:#fff;
---modal-bg-color: #fff;
---bg-transparent-color: rgba(0, 0, 0, 0.1);
---transparent-color-01:rgba(0, 0, 0, 0.1);
---transparent-color-02:rgba(106, 89, 209, 0.1);
---line-color: #d7d7d7;
+    /* background colors */
+    --body-bg-color: #fefefe;
+    --card-bg-color:#fff;
+    --modal-bg-color: #fff;
+    --bg-transparent-color: rgba(0, 0, 0, 0.1);
+    --transparent-color-01:rgba(0, 0, 0, 0.1);
+    --transparent-color-02:rgba(106, 89, 209, 0.1);
+    --line-color: #d7d7d7;
 
-/* color filter */
---color-filter: invert(1);
+    /* color filter */
+    --color-filter: invert(1);
 
-/* box shadow */
---box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
+    /* box shadow */
+    --box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
 
-/* font size */
---small-font-size: 0.9em;
---normal-font-size: 1em;
+    /* font size */
+    --small-font-size: 0.9em;
+    --normal-font-size: 1em;
 
-/* scroll bar colors */
---scroll-bar-color: #c5cadf;
---scroll-thumb-color: #70768a;
---scroll-thumb-hover-color: #454f6b;
-
+    /* scroll bar colors */
+    --scroll-bar-color: #c5cadf;
+    --scroll-thumb-color: #70768a;
+    --scroll-thumb-hover-color: #454f6b;
 } 
 
 .dark-theme{
     /* main theme colors */
---first-color:#fff;
---second-color: #6a59d1;
---third-color: #a9afc3;
+    --first-color:#fff;
+    --second-color: #6a59d1;
+    --third-color: #a9afc3;
 
+    /* background colors */
+    --body-bg-color: #0e1b31;
+    --card-bg-color:#132347;
+    --modal-bg-color: #102048;
+    --bg-transparent-color: rgba(255, 255, 255, 0.1);
+    --transparent-color-01:rgba(255, 255, 255, 0.1);
+    --line-color: #454f6b;
 
-/* background colors */
---body-bg-color: #0e1b31;
---card-bg-color:#132347;
---modal-bg-color: #102048;
---bg-transparent-color: rgba(255, 255, 255, 0.1);
---transparent-color-01:rgba(255, 255, 255, 0.1);
---line-color: #454f6b;
+    /* color filter */
+    --color-filter: invert(0);
 
-/* color filter */
---color-filter: invert(0);
-
-/* scroll bar colors */
---scroll-bar-color: #c1ceff;
---scroll-thumb-color: #282f4e;
---scroll-thumb-hover-color: #454f6b;
+    /* scroll bar colors */
+    --scroll-bar-color: #c1ceff;
+    --scroll-thumb-color: #282f4e;
+    --scroll-thumb-hover-color: #454f6b;
 }
 
 *{
@@ -225,7 +223,6 @@ header.sticky .nav-bar{
     display: flex;
     flex-direction: column;
     margin-right: 40px;
-
 }
 
 .home-container .media-icons a{
@@ -360,7 +357,6 @@ header.sticky .nav-bar{
     font-size: 1.3em;
     font-weight: 600;
     margin-bottom: 10px;
-
 }
 
 .about-info .description h4 span{
@@ -564,7 +560,6 @@ header.sticky .nav-bar{
 
 .services .container .content{
     width: 100%;
-    /* updated*/
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -577,7 +572,7 @@ header.sticky .nav-bar{
 
 .service-list{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));  /* grid-template-columns: repeat(auto-fill, minmax(225px, 1fr)); */
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
     max-width:100%;
     margin: 0 auto;
     gap: 20px;
@@ -1000,7 +995,7 @@ header.sticky .nav-bar{
     background: var(--second-color);
     width: 100%;
     margin-top: 50px;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem; /* Increased padding to make footer taller */
     color: #fff;
  }
 
@@ -1064,227 +1059,222 @@ header.sticky .nav-bar{
     margin-top: 50px;
  }
 
-
-
  @media screen and (max-width: 1070px){
-  /*=======Header navigation menu=======*/
+    /*=======Header navigation menu=======*/
+    .navigation{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--transparent-color-01);
+        visibility: hidden;
+        opacity: 0;
+        transition: .3s ease;
+    }
 
-  .navigation{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--transparent-color-01);
-    visibility: hidden;
-    opacity: 0;
-    transition: .3s ease;
-}
+    .navigation.active{
+        visibility: visible;
+        opacity: 1;
+    }
 
-.navigation.active{
-    visibility: visible;
-    opacity: 1;
-}
+    .nav-items{
+        position: relative;
+        background: var(--modal-bg-color);
+        width: 600px;
+        max-width: 600px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 20px;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+        transform: translateY(-50px);
+        transition: .3s ease;
+    }
 
-.nav-items{
-    position: relative;
-    background: var(--modal-bg-color);
-    width: 600px;
-    max-width: 600px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 20px;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-    transform: translateY(-50px);
-    transition: .3s ease;
-}
+    .navigation.active .nav-items{
+        transform: translateY(0);
+    }
 
-.navigation.active .nav-items{
-    transform: translateY(0);
-}
+    .nav-items a{
+        margin: 15px 50px;
+    }
 
-.nav-items a{
-    margin: 15px 50px;
-}
+    .nav-close-btn{
+        position: absolute;
+        background: url(close-btn.png)no-repeat;
+        filter: var(--color-filter);
+        background-size: 12px;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+        top: 0;
+        right: 0;
+        margin: 10px;
+        cursor: pointer;
+    }
 
-.nav-close-btn{
-    position: absolute;
-    background: url(close-btn.png)no-repeat;
-    filter: var(--color-filter);
-    background-size: 12px;
-    background-position: center;
-    width: 40px;
-    height: 40px;
-    top: 0;
-    right: 0;
-    margin: 10px;
-    cursor: pointer;
-}
+    .nav-menu-btn{
+        background: url(menu-btn.png)no-repeat;
+        filter: var(--color-filter);
+        background-size: 30px;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        display: block;
+    }
 
-.nav-menu-btn{
-    background: url(menu-btn.png)no-repeat;
-    filter: var(--color-filter);
-    background-size: 30px;
-    background-position: center;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: block;
-}
+    /*=======Home section=======*/
+    .home .home-container .info{
+        font-size: 0.85rem;
+    }
 
-  /*=======Home section=======*/
+    /*=======About section=======*/
+    .about .container .content{
+        display: grid;
+        width: 100%;
+        row-gap: 20px;
+    }
 
-  .home .home-container .info{
-    font-size: 0.85rem;
-  }
+    .about-img img{
+        min-width: 0;
+        width: 100%;
+    }
 
-  /*=======About section=======*/
-  .about .container .content{
-    display: grid;
-    width: 100%;
-    row-gap: 20px;
-  }
+    .about-info{
+        min-width: 0;
+        width: 100%;
+    }
 
-  .about-img img{
-    min-width: 0;
-    width: 100%;
-  }
+    .about-info .professional-list{
+        flex-direction: column;
+    }
 
-  .about-info{
-    min-width: 0;
-    width: 100%;
-  }
+    .about-info .professional-list .list-item{
+        justify-content: start;
+    }
 
-  .about-info .professional-list{
-    flex-direction: column;
-  }
+    /*=======Get-in-touct=======*/
+    .get-in-touch .contact-card{
+        display: grid;
+        width: 100%;
+    }
 
-  .about-info .professional-list .list-item{
-    justify-content: start;
-  }
+    .contact-card title{
+        font-size: 0.8rem;
+        line-height: 50px;
+    }
 
-  /*=======Get-in-touct=======*/
-  .get-in-touch .contact-card{
-    display: grid;
-    width: 100%;
-  }
+    /*=======Our clients=======*/
+    .client-swiper .swiper-slide{
+        flex-direction: column;
+    }
 
-  .contact-card title{
-    font-size: 0.8rem;
-    line-height: 50px;
-  }
+    .client-details{
+        text-align: center;
+    }
 
-  /*=======Our clients=======*/
-  .client-swiper .swiper-slide{
-    flex-direction: column;
-  }
+    /*=======Contact section=======*/
+    .contact .content{
+        flex-direction: column;
+        font-size: 0.9rem;
+    }
 
-  .client-details{
-    text-align: center;
-  }
+    .contact .contact-left{
+        margin-bottom: 40px;
+    }
 
-  /*=======Contact section=======*/
-  .contact .content{
-    flex-direction: column;
-    font-size: 0.9rem;
-  }
+    .contact-form .second-row{
+        flex-direction: column;
+    }
 
-  .contact .contact-left{
-    margin-bottom: 40px;
-  }
+    .contact-form .second-row input{
+        width: 100%;
+    }
 
-  .contact-form .second-row{
-    flex-direction: column;
-  }
+    /*=======Footer=======*/
+    footer .footer-container{
+        flex-direction: column;
+    }
 
-  .contact-form .second-row input{
-    width: 100%;
-  }
-
-  /*=======Footer=======*/
-  footer .footer-container{
-    flex-direction: column;
-  }
-
-  .footer-container .about, .footer-container .info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 50px;
-  }
-  
-  .footer-container .info ul{
-    align-items: center;
-    flex-direction: column;
-  }
-  .footer-container .info ul li{
-    margin: 5px 0;
-  }
-
-  .footer-container .hr{
-    width: 100%;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.1);
-    margin: 10px 0 22px;
-  }
-
- }
+    .footer-container .about, .footer-container .info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
     
- @media screen and (max-width: 730px){
-/*=======Common styles for all sections=======*/
- body{
-    margin: 5rem 0 0 0;
- }
+    .footer-container .info ul{
+        align-items: center;
+        flex-direction: column;
+    }
+    .footer-container .info ul li{
+        margin: 5px 0;
+    }
 
- .section-title-01{
-    font-size: 3em;
- }
-
- .section-title-02{
-    font-size: 2em;
-    transform: translateY(-65px);
- }
- /*=======Home section=======*/
- .home .home-container{
-    display: grid;
- }
-
- .home-container .home-img{
-    position: absolute;
- }
-
- .home-container .home-img img{
-    width: 65%;
-    transform: translate(80px, -180px);
- }
-
- .home .home-container .info{
-    font-size: 0.8rem;
- }
-
- .media-icons{
-    margin: 80px;
- }
-
- /*=======Get-in-touch section=======*/
- .get-in-touch .contact-card{
-    display: grid;
- }
-
- .contact-card .title{
-    font-size: 0.6rem;
-    line-height: 40px;
- }
-
- .contact-card .contact-btn .btn{
-    font-size: 0.8rem;
- }
+    .footer-container .hr{
+        width: 100%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 10px 0 22px;
+    }
 }
- 
+    
+@media screen and (max-width: 730px){
+    /*=======Common styles for all sections=======*/
+    body{
+        margin: 5rem 0 0 0;
+    }
+
+    .section-title-01{
+        font-size: 3em;
+    }
+
+    .section-title-02{
+        font-size: 2em;
+        transform: translateY(-65px);
+    }
+
+    /*=======Home section=======*/
+    .home .home-container{
+        display: grid;
+    }
+
+    .home-container .home-img{
+        position: absolute;
+    }
+
+    .home-container .home-img img{
+        width: 65%;
+        transform: translate(80px, -180px);
+    }
+
+    .home .home-container .info{
+        font-size: 0.8rem;
+    }
+
+    .media-icons{
+        margin: 80px;
+    }
+
+    /*=======Get-in-touch section=======*/
+    .get-in-touch .contact-card{
+        display: grid;
+    }
+
+    .contact-card .title{
+        font-size: 0.6rem;
+        line-height: 40px;
+    }
+
+    .contact-card .contact-btn .btn{
+        font-size: 0.8rem;
+    }
+}
