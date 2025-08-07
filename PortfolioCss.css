@@ -236,22 +236,23 @@ header.sticky .nav-bar{
 }
 
 .home-container .info h2{
-    font-size: flex;
+    font-size: 2em;
     font-weight: 600;
-    line-height: 70px;
+    line-height: 10px;
 }
 
 .home-container .info h3{
     color: var(--third-color);
     font-feature-settings: 1.3em;
     font-weight: 600;
-    line-height: 50px;
+    line-height: 70px;
 }
 
 .home-container .info p{
     color: var(--third-color);
     font-size: var(--normal-font-size);
     max-width: 350px;
+    
 }
 
 .btn{

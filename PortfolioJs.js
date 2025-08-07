@@ -100,13 +100,20 @@ themeBtn.addEventListener("click", () => {
 const getCurrentTheme = () => document.body.classList.contains("dark-theme") ? "dark" : "light";
 const getCurrentIcon = () => themeBtn.classList.contains("sun") ? "sun" : "moon";
 
-const savedTheme = localStorage.getItem("saved-theme");
-const savedIcon = localStorage.getItem("saved-icon");
 
-if(savedTheme){
-    document.body.classList[savedTheme === "dark" ? "add" : "remove"]("dark-theme");
-    themeBtn.classList[savedIcon === "sun" ? "add" : "remove"] ("sun");
-};
+let savedTheme = localStorage.getItem("saved-theme");
+let savedIcon = localStorage.getItem("saved-icon");
+
+// Set dark theme as default if no preference is saved
+if (!savedTheme) {
+    savedTheme = "dark";
+    localStorage.setItem("saved-theme", "dark");
+    savedIcon = "sun";
+    localStorage.setItem("saved-icon", "sun");
+}
+
+document.body.classList[savedTheme === "dark" ? "add" : "remove"]("dark-theme");
+themeBtn.classList[savedIcon === "sun" ? "add" : "remove"] ("sun");
 
 const scrollTopBtn = document.querySelector(".scrollToTop-btn");
 
@@ -133,6 +140,14 @@ navItems.forEach((navItem) => {
         // Close mobile navigation
         navigation.classList.remove("active");
     });
+});
+
+menuBtn.addEventListener("click", () => {
+    navigation.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+    navigation.classList.remove("active");
 });
 
 ScrollReveal({ 
