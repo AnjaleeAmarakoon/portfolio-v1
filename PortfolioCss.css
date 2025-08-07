@@ -278,6 +278,7 @@ header.sticky .nav-bar{
 .home-container .home-img img{
     width: 90%;
     transform: translate(0,0);
+    margin-left: 70px;
 }
 
 .flex-center{
