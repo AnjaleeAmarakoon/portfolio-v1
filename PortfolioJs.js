@@ -135,6 +135,14 @@ navItems.forEach((navItem) => {
     });
 });
 
+menuBtn.addEventListener("click", () => {
+    navigation.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+    navigation.classList.remove("active");
+});
+
 ScrollReveal({ 
     distance: '60px',
     duration: 2500,
