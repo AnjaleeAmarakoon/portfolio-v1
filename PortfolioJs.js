@@ -1,6 +1,31 @@
+// Sticky header on scroll
 window.addEventListener("scroll", function(){
     const header = document.querySelector("header");
     header.classList.toggle("sticky", window.scrollY > 0); 
+});
+
+// Highlight navigation items based on scroll position
+window.addEventListener("scroll", function() {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-items a");
+    
+    let currentSection = "";
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.scrollY >= sectionTop - 60 && window.scrollY < sectionTop + sectionHeight - 60) {
+            currentSection = section.getAttribute("id");
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").slice(1) === currentSection) {
+            link.classList.add("active");
+        }
+    });
 });
 
 // Service section - modal
