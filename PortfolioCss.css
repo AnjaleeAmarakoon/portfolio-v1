@@ -222,7 +222,7 @@ header.sticky .nav-bar{
 .home-container .media-icons{
     display: flex;
     flex-direction: column;
-    margin-right: 40px;
+    margin-right: 20px;
 }
 
 .home-container .media-icons a{
