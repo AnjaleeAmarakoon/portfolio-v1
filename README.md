@@ -37,4 +37,4 @@ This is my very first portfolio website, showcasing my projects, design approach
 ```bash
 git clone https://github.com/AnjaleeAmarakoon/portfolio-v1.git
 cd portfolio-v1
-open IndexMain.html
+open index.html
