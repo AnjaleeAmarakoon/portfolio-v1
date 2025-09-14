@@ -343,10 +343,20 @@ header.sticky .nav-bar{
     position: relative;
 }
 
-.about-img img{
-    max-width: 100%;
-    min-width: 500px;
+.about-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.about-img img {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4/5;
+    object-fit: cover;
     border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
 
 .about-info .description h3{
