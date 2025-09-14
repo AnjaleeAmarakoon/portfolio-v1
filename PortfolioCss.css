@@ -1245,25 +1245,49 @@ header.sticky .nav-bar{
     }
 
     /*=======Home section=======*/
-    .home .home-container{
-        display: grid;
+
+    .home .home-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 0 10px;
     }
 
-    .home-container .home-img{
-        position: absolute;
+    .home-container .media-icons {
+        flex-direction: row;
+        margin: 0 0 16px 0;
+        gap: 16px;
+        justify-content: center;
+        width: 100%;
     }
 
-    .home-container .home-img img{
-        width: 65%;
-        transform: translate(80px, -180px);
+    .home-container .media-icons a {
+        font-size: 1.3em;
+        margin: 0 8px;
     }
 
-    .home .home-container .info{
-        font-size: 0.8rem;
+    .home-container .info {
+        text-align: center;
+        font-size: 0.95rem;
+        width: 100%;
     }
 
-    .media-icons{
-        margin: 80px;
+    .home-container .home-img {
+        position: static;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .home-container .home-img img {
+        width: 80%;
+        max-width: 250px;
+        min-width: 120px;
+        margin: 0 auto;
+        transform: none;
+        display: block;
     }
 
     /*=======Get-in-touch section=======*/
