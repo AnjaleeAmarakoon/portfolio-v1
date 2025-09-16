@@ -1,0 +1,92 @@
+// Star background animation
+const starCanvas = document.createElement('canvas');
+starCanvas.id = 'star-bg';
+starCanvas.style.position = 'fixed';
+starCanvas.style.top = '0';
+starCanvas.style.left = '0';
+starCanvas.style.width = '100vw';
+starCanvas.style.zIndex = '0';
+starCanvas.style.pointerEvents = 'none';
+starCanvas.style.display = 'block';
+
+// Insert canvas before the footer
+window.addEventListener('DOMContentLoaded', () => {
+  const footer = document.querySelector('footer');
+  if (footer && footer.parentNode) {
+    footer.parentNode.insertBefore(starCanvas, footer);
+  } else {
+    document.body.appendChild(starCanvas);
+  }
+  resizeCanvas();
+  createStars();
+  animateStars();
+});
+
+const ctx = starCanvas.getContext('2d');
+let stars = [];
+const STAR_COUNT = 120;
+const STAR_COLOR = '#fff';
+const STAR_SIZE = 1.2;
+const STAR_SPEED = 0.15;
+
+function getCanvasHeight() {
+  const footer = document.querySelector('footer');
+  if (!footer) return window.innerHeight;
+  const rect = footer.getBoundingClientRect();
+  // Height from top of viewport to top of footer, plus scroll offset
+  return rect.top + window.scrollY;
+}
+
+function resizeCanvas() {
+  starCanvas.width = window.innerWidth;
+  starCanvas.height = getCanvasHeight();
+}
+
+function createStars() {
+  stars = [];
+  for (let i = 0; i < STAR_COUNT; i++) {
+    stars.push({
+      x: Math.random() * starCanvas.width,
+      y: Math.random() * starCanvas.height,
+      r: Math.random() * STAR_SIZE + 0.5,
+      speed: Math.random() * STAR_SPEED + 0.05
+    });
+  }
+}
+
+function drawStars() {
+  ctx.clearRect(0, 0, starCanvas.width, starCanvas.height);
+  ctx.save();
+  ctx.globalAlpha = 0.8;
+  for (let star of stars) {
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.r, 0, 2 * Math.PI);
+    ctx.fillStyle = STAR_COLOR;
+    ctx.shadowColor = STAR_COLOR;
+    ctx.shadowBlur = 8;
+    ctx.fill();
+    ctx.closePath();
+  }
+  ctx.restore();
+}
+
+function animateStars() {
+  for (let star of stars) {
+    star.y += star.speed;
+    if (star.y > starCanvas.height) {
+      star.x = Math.random() * starCanvas.width;
+      star.y = 0;
+    }
+  }
+  drawStars();
+  requestAnimationFrame(animateStars);
+}
+
+window.addEventListener('resize', () => {
+  resizeCanvas();
+  createStars();
+});
+
+window.addEventListener('scroll', () => {
+  resizeCanvas();
+});
