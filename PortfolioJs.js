@@ -112,8 +112,14 @@ if (!savedTheme) {
     localStorage.setItem("saved-icon", "sun");
 }
 
-document.body.classList[savedTheme === "dark" ? "add" : "remove"]("dark-theme");
-themeBtn.classList[savedIcon === "sun" ? "add" : "remove"] ("sun");
+// Only remove dark-theme if savedTheme is light
+if (savedTheme === "light") {
+    document.body.classList.remove("dark-theme");
+    themeBtn.classList.remove("sun");
+} else {
+    document.body.classList.add("dark-theme");
+    themeBtn.classList.add("sun");
+}
 
 const scrollTopBtn = document.querySelector(".scrollToTop-btn");
 
