@@ -24,10 +24,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 const ctx = starCanvas.getContext('2d');
 let stars = [];
-const STAR_COUNT = 120;
+const STAR_COUNT = 180;
 const STAR_COLOR = '#fff';
-const STAR_SIZE = 1.2;
-const STAR_SPEED = 0.15;
+const STAR_SIZE = 1.5;
+const STAR_SPEED = 0.5;
 
 function getCanvasHeight() {
   const footer = document.querySelector('footer');
