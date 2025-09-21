@@ -1,3 +1,18 @@
+// Ripple effect for .btn
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const circle = document.createElement('span');
+            circle.className = 'ripple';
+            const rect = btn.getBoundingClientRect();
+            circle.style.width = circle.style.height = Math.max(rect.width, rect.height) + 'px';
+            circle.style.left = (e.clientX - rect.left - rect.width/2) + rect.width/2 + 'px';
+            circle.style.top = (e.clientY - rect.top - rect.height/2) + rect.height/2 + 'px';
+            btn.appendChild(circle);
+            setTimeout(() => circle.remove(), 500);
+        });
+    });
+});
 // Hide loader after at least 1 second and page load
 let loaderMinTimePassed = false;
 let loaderPageLoaded = false;
