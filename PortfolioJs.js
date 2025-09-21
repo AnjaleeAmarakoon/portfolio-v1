@@ -1,3 +1,26 @@
+// Hide loader after at least 1 second and page load
+let loaderMinTimePassed = false;
+let loaderPageLoaded = false;
+
+function hideLoaderIfReady() {
+    if (loaderMinTimePassed && loaderPageLoaded) {
+        const loaderBg = document.getElementById('loader-bg');
+        if (loaderBg) {
+            loaderBg.style.opacity = '0';
+            setTimeout(() => loaderBg.style.display = 'none', 400);
+        }
+    }
+}
+
+setTimeout(function() {
+    loaderMinTimePassed = true;
+    hideLoaderIfReady();
+}, 2000);
+
+window.addEventListener('load', function() {
+    loaderPageLoaded = true;
+    hideLoaderIfReady();
+});
 // Sticky header on scroll
 window.addEventListener("scroll", function(){
     const header = document.querySelector("header");
