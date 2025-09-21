@@ -1,3 +1,50 @@
+@media screen and (max-width: 400px) {
+    html {
+        font-size: 13px;
+    }
+    .section-title-01 {
+        font-size: 2em;
+    }
+    .section-title-02 {
+        font-size: 1.2em;
+        transform: translateY(-40px);
+    }
+    .btn {
+        font-size: 0.9em;
+        padding: 0.6em 1.2em;
+    }
+    .home-container .home-img img {
+        width: 90%;
+        max-width: 180px;
+    }
+    .media-icons a {
+        font-size: 1.1em;
+    }
+    .about-img img {
+        max-width: 180px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    html {
+        font-size: 19px;
+    }
+    .container, .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .section-title-01 {
+        font-size: 4.2em;
+    }
+    .section-title-02 {
+        font-size: 2.8em;
+        transform: translateY(-90px);
+    }
+    .btn {
+        font-size: 1.25em;
+        padding: 1em 2.8em;
+    }
+}
 /* Modern Button UX */
 .btn {
     display: inline-block;
