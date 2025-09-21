@@ -9,18 +9,43 @@ starCanvas.style.zIndex = '0';
 starCanvas.style.pointerEvents = 'none';
 starCanvas.style.display = 'block';
 
-// Insert canvas before the footer
-window.addEventListener('DOMContentLoaded', () => {
-  const footer = document.querySelector('footer');
-  if (footer && footer.parentNode) {
-    footer.parentNode.insertBefore(starCanvas, footer);
-  } else {
-    document.body.appendChild(starCanvas);
+
+function insertStarCanvas() {
+  if (!document.getElementById('star-bg')) {
+    const footer = document.querySelector('footer');
+    if (footer && footer.parentNode) {
+      footer.parentNode.insertBefore(starCanvas, footer);
+    } else {
+      document.body.appendChild(starCanvas);
+    }
+    resizeCanvas();
+    createStars();
+    animateStars();
   }
-  resizeCanvas();
-  createStars();
-  animateStars();
+  starCanvas.style.display = 'block';
+}
+
+function removeStarCanvas() {
+  if (document.getElementById('star-bg')) {
+    starCanvas.style.display = 'none';
+  }
+}
+
+function updateStarBgTheme() {
+  if (document.body.classList.contains('dark-theme')) {
+    insertStarCanvas();
+  } else {
+    removeStarCanvas();
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  updateStarBgTheme();
 });
+
+// Listen for theme changes
+const observer = new MutationObserver(updateStarBgTheme);
+observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
 const ctx = starCanvas.getContext('2d');
 let stars = [];

@@ -1,3 +1,41 @@
+// Ripple effect for .btn
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const circle = document.createElement('span');
+            circle.className = 'ripple';
+            const rect = btn.getBoundingClientRect();
+            circle.style.width = circle.style.height = Math.max(rect.width, rect.height) + 'px';
+            circle.style.left = (e.clientX - rect.left - rect.width/2) + rect.width/2 + 'px';
+            circle.style.top = (e.clientY - rect.top - rect.height/2) + rect.height/2 + 'px';
+            btn.appendChild(circle);
+            setTimeout(() => circle.remove(), 500);
+        });
+    });
+});
+// Hide loader after at least 1 second and page load
+let loaderMinTimePassed = false;
+let loaderPageLoaded = false;
+
+function hideLoaderIfReady() {
+    if (loaderMinTimePassed && loaderPageLoaded) {
+        const loaderBg = document.getElementById('loader-bg');
+        if (loaderBg) {
+            loaderBg.style.opacity = '0';
+            setTimeout(() => loaderBg.style.display = 'none', 400);
+        }
+    }
+}
+
+setTimeout(function() {
+    loaderMinTimePassed = true;
+    hideLoaderIfReady();
+}, 2000);
+
+window.addEventListener('load', function() {
+    loaderPageLoaded = true;
+    hideLoaderIfReady();
+});
 // Sticky header on scroll
 window.addEventListener("scroll", function(){
     const header = document.querySelector("header");
