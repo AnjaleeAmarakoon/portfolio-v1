@@ -135,6 +135,30 @@
     opacity: 1;
     transform: translateX(-50%) translateY(8px);
 }
+/* Screen reader only class for accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Ensure buttons are accessible */
+.scrollToTop-btn, .theme-btn {
+    border: none;
+    cursor: pointer;
+}
+
+.scrollToTop-btn:focus, .theme-btn:focus {
+    outline: 3px solid var(--second-color);
+    outline-offset: 3px;
+}
+
 /* Loader Animation Styles */
 #loader-bg {
     position: fixed;
