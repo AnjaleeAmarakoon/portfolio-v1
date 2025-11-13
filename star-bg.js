@@ -5,7 +5,7 @@ starCanvas.style.position = 'fixed';
 starCanvas.style.top = '0';
 starCanvas.style.left = '0';
 starCanvas.style.width = '100vw';
-starCanvas.style.zIndex = '0';
+starCanvas.style.zIndex = '-1';
 starCanvas.style.pointerEvents = 'none';
 starCanvas.style.display = 'block';
 
@@ -82,7 +82,7 @@ function createStars() {
 function drawStars() {
   ctx.clearRect(0, 0, starCanvas.width, starCanvas.height);
   ctx.save();
-  ctx.globalAlpha = 0.8;
+  ctx.globalAlpha = 0.4;
   for (let star of stars) {
     ctx.beginPath();
     ctx.arc(star.x, star.y, star.r, 0, 2 * Math.PI);
